@@ -21,5 +21,5 @@ flight-route-optimization/
 ├── planner.h      # Planner class declaration & search state structs
 ├── planner.cpp    # Algorithm implementations (BFS, Dijkstra)
 ├── main.cpp       # Main driver, test cases, and verification harness
-├── test_cases.txt # Dataset and expected test outputs
+├── testcases.txt # Dataset and expected test outputs
 └── README.md      # Project documentation

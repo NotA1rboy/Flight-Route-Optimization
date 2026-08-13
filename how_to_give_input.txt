@@ -1,0 +1,48 @@
+====================================================================
+          HOW TO PROVIDE INPUT TO FLIGHT ROUTE OPTIMIZER
+====================================================================
+
+In the C++ implementation, input is provided programmatically by 
+instantiating `Flight` objects and passing them to the `Planner` class.
+
+--------------------------------------------------------------------
+1. CREATING FLIGHT OBJECTS
+--------------------------------------------------------------------
+Each flight is created using the Flight constructor:
+  Flight(flight_no, start_city, departure_time, end_city, arrival_time, fare)
+
+Parameters:
+  - flight_no      (int) : Unique integer ID for the flight [0 to N-1]
+  - start_city     (int) : Origin city ID [0 to M-1]
+  - departure_time (int) : Timestamp when flight departs
+  - end_city       (int) : Destination city ID [0 to M-1]
+  - arrival_time   (int) : Timestamp when flight arrives
+  - fare           (int) : Cost of taking the flight
+
+Example:
+  Flight(0, 0, 0, 1, 30, 50)  // Flight 0: City 0 -> 1, Dep: 0, Arr: 30, Cost: 50
+
+--------------------------------------------------------------------
+2. INITIALIZING THE PLANNER
+--------------------------------------------------------------------
+Store your flights in a `std::vector<Flight>` and pass it to `Planner`:
+
+  vector<Flight> flights = { ... };
+  Planner flight_planner(flights);
+
+--------------------------------------------------------------------
+3. QUERYING ROUTES
+--------------------------------------------------------------------
+Call any of the 3 optimization functions with parameters:
+  (start_city, end_city, t1, t2)
+
+Where:
+  - start_city (int) : Starting location
+  - end_city   (int) : Destination
+  - t1         (int) : Minimum departure time (dep_time >= t1)
+  - t2         (int) : Maximum arrival deadline (arr_time <= t2)
+
+Example Queries:
+  flight_planner.least_flights_earliest_route(0, 4, 0, 300);
+  flight_planner.cheapest_route(0, 4, 0, 300);
+  flight_planner.least_flights_cheapest_route(0, 4, 0, 300);

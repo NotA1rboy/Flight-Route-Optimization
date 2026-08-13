@@ -14,38 +14,28 @@ Flight 5: City 3 -> City 4 | Dep: t=100, Arr: t=150 | Fare: 500
 Flight 6: City 3 -> City 4 | Dep: t=100, Arr: t=250 | Fare: 300
 
 --------------------------------------------------------------------
-TEST CASE 1: Least Flights & Earliest Arrival
+TEST TASK 1: Least Flights & Earliest Arrival (City 0 -> 4, t=[0, 300])
 --------------------------------------------------------------------
-Query Parameters : start = 0, end = 4, t1 = 0, t2 = 300
-Expected Path    : Flight 1 -> Flight 5 (City 0 -> 3 -> 4)
-Number of Hops   : 2 flights
-Arrival Time     : t = 150
-Total Cost       : 700
-Output           : Task 1 PASSED
+Expected Path : Flight 1 -> Flight 5 (City 0 -> 3 -> 4)
+Flight Count  : 2 flights
+Arrival Time  : t = 150
+Total Fare    : 700
+Console       : Task 1 PASSED
 
 --------------------------------------------------------------------
-TEST CASE 2: Cheapest Route (Cost Optimization)
+TEST TASK 2: Cheapest Route (City 0 -> 4)
 --------------------------------------------------------------------
-Query Parameters : start = 0, end = 4, t1 = 0, t2 = 300
-Expected Path    : Flight 0 -> Flight 3 -> Flight 4 (City 0 -> 1 -> 2 -> 4)
-Number of Hops   : 3 flights
-Arrival Time     : t = 200
-Total Cost       : 270 (50 + 120 + 100)
-Output           : Task 2 PASSED
+Expected Path : Flight 0 -> Flight 3 -> Flight 4 (City 0 -> 1 -> 2 -> 4)
+Flight Count  : 3 flights
+Arrival Time  : t = 200
+Total Fare    : 270 (50 + 120 + 100)
+Console       : Task 2 PASSED
 
 --------------------------------------------------------------------
-TEST CASE 3: Least Flights & Cheapest Route
+TEST TASK 3: Least Flights & Cheapest Route (City 0 -> 4, t=[0, 300])
 --------------------------------------------------------------------
-Query Parameters : start = 0, end = 4, t1 = 0, t2 = 300
-Expected Path    : Flight 1 -> Flight 6 (City 0 -> 3 -> 4)
-Number of Hops   : 2 flights
-Arrival Time     : t = 250
-Total Cost       : 500 (200 + 300)
-Output           : Task 3 PASSED
-
---------------------------------------------------------------------
-TEST CASE 4: Invalid Route (Deadline Exceeded)
---------------------------------------------------------------------
-Query Parameters : start = 0, end = 4, t1 = 0, t2 = 100
-Expected Path    : No route available (Flight 4/5/6 arrive after t=100)
-Returned Route   : Empty Vector {}
+Expected Path : Flight 1 -> Flight 6 (City 0 -> 3 -> 4)
+Flight Count  : 2 flights
+Arrival Time  : t = 250
+Total Fare    : 500 (200 + 300)
+Console       : Task 3 PASSED
